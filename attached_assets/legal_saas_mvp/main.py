@@ -38,6 +38,10 @@ SECRET_KEY = os.environ.get("SECRET_KEY", "dev-secret")
 app = FastAPI()
 templates = Jinja2Templates(directory=os.path.join(os.path.dirname(__file__), "templates"))
 
+from starlette.middleware.sessions import SessionMiddleware
+
+app.add_middleware(SessionMiddleware, secret_key="a-very-secret-key")
+
 # In‑memory session store.  Maps session token -> user_id.
 sessions: Dict[str, int] = {}
 
