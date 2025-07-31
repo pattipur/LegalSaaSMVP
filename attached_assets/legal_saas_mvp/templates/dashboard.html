@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block title %}Dashboard - LegalMVP{% endblock %}
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h2>My Cases</h2>
+    <a href="{{ url_for('new_case') }}" class="btn btn-success">New Case</a>
+</div>
+
+{% if cases %}
+    <div class="list-group">
+        {% for case in cases %}
+        <a href="{{ url_for('view_case', case_id=case.id) }}" class="list-group-item list-group-item-action">
+            <div class="d-flex w-100 justify-content-between">
+                <h5 class="mb-1">{{ case.title }}</h5>
+                <small class="text-muted">{{ case.created_at.strftime('%Y-%m-%d') }}</small>
+            </div>
+            <p class="mb-1"><strong>Client:</strong> {{ case.client_name }}</p>
+            <small class="text-muted">{{ case.summary()[:120] }}</small>
+        </a>
+        {% endfor %}
+    </div>
+{% else %}
+    <p>No cases yet. Click "New Case" to get started.</p>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% block title %}{{ case.title }} - LegalMVP{% endblock %}
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h2>{{ case.title }}</h2>
+    <div>
+        <a href="{{ url_for('summarise', case_id=case.id) }}" class="btn btn-outline-primary">Generate Summary</a>
+        <a href="{{ url_for('dashboard') }}" class="btn btn-secondary ms-2">Back</a>
+    </div>
+</div>
+<p><strong>Client:</strong> {{ case.client_name }}</p>
+<p><strong>Description:</strong></p>
+<p>{{ case.description }}</p>
+
+<hr>
+<h4>Tasks</h4>
+<form method="post" action="{{ url_for('new_task', case_id=case.id) }}" class="row g-3 align-items-center mb-3">
+    <div class="col-auto">
+        <input type="text" class="form-control" name="description" placeholder="Task description" required>
+    </div>
+    <div class="col-auto">
+        <input type="date" class="form-control" name="due_date" required>
+    </div>
+    <div class="col-auto">
+        <button type="submit" class="btn btn-success">Add Task</button>
+    </div>
+</form>
+
+{% if case.tasks %}
+<ul class="list-group">
+    {% for task in case.tasks %}
+    <li class="list-group-item d-flex justify-content-between align-items-center">
+        <div>
+            <input type="checkbox" onclick="window.location.href='{{ url_for('complete_task', task_id=task.id) }}'" {% if task.completed %}checked{% endif %}>
+            {{ task.description }} (due {{ task.due_date.strftime('%Y-%m-%d') }})
+        </div>
+    </li>
+    {% endfor %}
+</ul>
+{% else %}
+<p>No tasks added yet.</p>
+{% endif %}
+{% endblock %}

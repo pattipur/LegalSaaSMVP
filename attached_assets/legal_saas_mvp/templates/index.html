@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block title %}Welcome - LegalMVP{% endblock %}
+{% block content %}
+<div class="text-center py-5">
+    <h1 class="display-4">AI‑Powered Practice Management</h1>
+    <p class="lead">Streamline your legal practice, save hours on administrative tasks, and focus on what really matters — serving your clients.</p>
+    <a href="{{ url_for('register') }}" class="btn btn-lg btn-primary">Get Started</a>
+    <a href="{{ url_for('login') }}" class="btn btn-lg btn-outline-light ms-2">Login</a>
+</div>
+{% endblock %}

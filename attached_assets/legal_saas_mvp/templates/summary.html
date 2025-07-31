@@ -1,0 +1,7 @@
+{% extends "base.html" %}
+{% block title %}Summary - LegalMVP{% endblock %}
+{% block content %}
+<h2>Summary for {{ case.title }}</h2>
+<p>{{ summary }}</p>
+<a href="{{ url_for('view_case', case_id=case.id) }}" class="btn btn-secondary">Back to Case</a>
+{% endblock %}

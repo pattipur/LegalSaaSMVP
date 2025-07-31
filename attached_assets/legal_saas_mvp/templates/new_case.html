@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block title %}New Case - LegalMVP{% endblock %}
+{% block content %}
+<h2>Create New Case</h2>
+<form method="post" class="w-75">
+    <div class="mb-3">
+        <label for="title" class="form-label">Case Title</label>
+        <input type="text" class="form-control" id="title" name="title" required>
+    </div>
+    <div class="mb-3">
+        <label for="client_name" class="form-label">Client Name</label>
+        <input type="text" class="form-control" id="client_name" name="client_name" required>
+    </div>
+    <div class="mb-3">
+        <label for="description" class="form-label">Case Description</label>
+        <textarea class="form-control" id="description" name="description" rows="6" required></textarea>
+        <small class="form-text text-muted">Provide a detailed description of the case. You can later view a generated summary.</small>
+    </div>
+    <button type="submit" class="btn btn-primary">Create Case</button>
+    <a href="{{ url_for('dashboard') }}" class="btn btn-secondary ms-2">Cancel</a>
+</form>
+{% endblock %}
