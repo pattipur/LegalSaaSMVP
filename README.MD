@@ -5,6 +5,8 @@
 
 A minimal viable product (MVP) for a legal practice management platform built with FastAPI and Jinja2. Designed to help solo practitioners or small law firms manage clients, cases, and workflows efficiently.
 
+![License](https://img.shields.io/badge/license-MIT-green)
+
 ---
 
 ## 🚀 Features
