@@ -237,7 +237,7 @@ def require_login(request: Request) -> int:
     return user_id
 
 
-@app.get("/", response_class=HTMLResponse)
+@app.get("/", response_class=HTMLResponse, name="index")
 def landing(request: Request):
     user_id = get_current_user(request)
     if user_id:
