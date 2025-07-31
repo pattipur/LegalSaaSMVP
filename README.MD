@@ -89,5 +89,5 @@ MIT License (or specify your own)
 
 ```
 
-✂️ **Paste that into a `README.md` file and you’re done!** Want help adding it now via GitHub’s file editor?
+
 ```
