@@ -81,13 +81,4 @@ LegalSaaSMVP/
 
 This MVP was developed as part of a legal tech exploration, blending lightweight tools with powerful backend logic to simplify legal operations.
 
----
 
-## 📜 License
-
-MIT License (or specify your own)
-
-```
-
-
-```
