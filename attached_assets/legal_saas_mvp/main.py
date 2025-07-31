@@ -265,6 +265,8 @@ def summarise_case(request: Request, case_id: int):
     summary = summarise_text(case["description"])
     return templates.TemplateResponse("summary.html", {"request": request, "case": case, "summary": summary})
 
+app.mount("/static", StaticFiles(directory=".", html=True), name="static")
+
 static_dir = os.path.join(os.path.dirname(__file__), "static")
 if os.path.isdir(static_dir):
     app.mount("/static", StaticFiles(directory=static_dir), name="static")
